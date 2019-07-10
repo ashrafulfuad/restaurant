@@ -109,7 +109,7 @@ class HomeController extends Controller
       Slider::findOrFail($request->slider_id)->update([
         'slider_name' =>$request->slider_name,
         'slider_details' =>$request->slider_details,
-        'slider_details' =>$request->button_name,
+        'button_name' =>$request->button_name,
       ]);
       if ($request->hasFile('slider_photo')) {
         if (Slider::findOrFail($request->slider_id)->slider_photo != 'dflt.jpg') {
@@ -123,6 +123,7 @@ class HomeController extends Controller
             'slider_photo' => $filename,
           ]);
     }
+    return back()->with('deleted_msg', 'Slider Updated Successfully!');
   }
 
 

@@ -4,7 +4,14 @@
 
 
 
-<h3>Slider Edit</h3>
+<h3>Slider Edit of <span style="color:blue;">{{ $edit_slider->slider_name }}</span></h3>
+
+@if (Session::has('deleted_msg'))
+  <div class="alert alert-info alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    {{ Session::get('deleted_msg') }}
+  </div>
+@endif
 
 <form action="{{ url('edit/slider/insert') }}" method="post" enctype="multipart/form-data">
   @csrf
