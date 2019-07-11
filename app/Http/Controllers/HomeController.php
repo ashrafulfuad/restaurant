@@ -8,6 +8,7 @@ use App\Slider;
 use Carbon\Carbon;
 use Image;
 use Auth;
+use App\Menu;
 
 class HomeController extends Controller
 {
@@ -28,7 +29,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-      return view('home');
+      return view('admin');
     }
 
 // To view all user
@@ -36,6 +37,13 @@ class HomeController extends Controller
     {
       $all_users  = User::all();
       return view('user_list', compact('all_users'));
+    }
+
+//  To view user profile individually
+    public function userview($user_id)
+    {
+      $user_view = User::findOrFail($user_id);
+      return view('admin/view', compact('user_view'));
     }
 
 //  To view user profile
@@ -124,6 +132,25 @@ class HomeController extends Controller
           ]);
     }
     return back()->with('deleted_msg', 'Slider Updated Successfully!');
+  }
+
+
+  //  To view all menu
+  public function addmenu()
+  {
+    return view('menu/view');
+  }
+
+  //  To insert menu
+  function menuinsert(Request $request)
+  {
+    // print_r($request->all());
+    $request->validate([
+      'menu_name' => 'required',
+      'menu_details' => 'required',
+      'menu_price' => 'required ',
+    ]);
+
   }
 
 

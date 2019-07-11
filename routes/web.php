@@ -23,6 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/user', 'HomeController@user');
 Route::get('/user/delete/{user_id}', 'HomeController@userdelete');
 Route::get('/view/user/profile', 'HomeController@viewuserprofile');
+Route::get('/user/view/{user_id}', 'HomeController@userview');
 
 // slider route links
 Route::get('/add/slider', 'HomeController@addslider');
@@ -30,3 +31,7 @@ Route::get('/slider/delete/{slider_id}', 'HomeController@sliderdelete');
 Route::post('/slider/insert', 'HomeController@sliderinsert');
 Route::get('/slider/edit/{id}', 'HomeController@slideredit');
 Route::post('/edit/slider/insert', 'HomeController@editsliderinsert');
+
+//  menu route links
+Route::get('/add/menu', 'HomeController@addmenu');
+Route::post('/menu/insert', 'HomeController@menuinsert');

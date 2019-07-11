@@ -28,7 +28,10 @@
               <td>{{ $all_user->name }}</td>
               <td>{{ $all_user->email }}</td>
               <td>{{ $all_user->created_at }}</td>
-              <td><a href="{{ url('user/delete') }}/{{ $all_user->id }}" class="btn btn-sm btn-danger" type="submit">Delete</a></td>
+              <td>
+                <a href="{{ url('user/delete') }}/{{ $all_user->id }}" class="btn btn-sm btn-danger" type="submit">Delete</a>
+                <a href="{{ url('user/view') }}/{{ $all_user->id }}" class="btn btn-sm btn-info" type="submit">View</a>
+              </td>
             </tr>
           @endforeach
         </tbody>

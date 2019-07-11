@@ -34,7 +34,7 @@
 
                     <!-- LOGO -->
                     <div class="topbar-left">
-                        <a href="index.html" class="logo">
+                        <a href="{{ url('/home') }}" class="logo">
                             <span>
                                 <img src="{{ asset('backend_asset/assets/images/logo.png') }}" alt="" height="22">
                             </span>
@@ -72,6 +72,7 @@
                                 <ul class="nav-second-level" aria-expanded="false">
                                     <li><a href="{{ url('add/slider') }}">Add Slider</a></li>
                                     <li><a href="{{ url('user') }}">Admin List</a></li>
+                                    <li><a href="{{ url('add/menu') }}">Add Menu</a></li>
                                 </ul>
                             </li>
 
